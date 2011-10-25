@@ -1,0 +1,7 @@
+{
+  "name": "clockwork",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "2.4.6"
+  }
+}
