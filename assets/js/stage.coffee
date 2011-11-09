@@ -50,20 +50,15 @@ $(->
 
 		bodyDef.type = b2Body.b2_dynamicBody;
 
-		if Math.random() > 0.5
-			fixDef.shape = new b2PolygonShape;
-			fixDef.shape.SetAsBox(
-					Math.random() + 0.1 #half width
-					,  Math.random() + 0.1 #half height
-					);
-		else
-			fixDef.shape = new b2CircleShape(
-					Math.random() + 0.1 #radius
-					);
+		fixDef.shape = new b2PolygonShape;
+		fixDef.shape.SetAsBox(
+				.4 #half width
+				, .4 #half height
+				);
 		
 		bodyDef.position.x = Math.random() * 10;
 		bodyDef.position.y = Math.random() * 10;
-		world.CreateBody(bodyDef).CreateFixture(fixDef);
+		window.player = world.CreateBody(bodyDef).CreateFixture(fixDef);
 
 
 		# Setup debug draw
