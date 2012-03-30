@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Clockwork</title>
+        
+        <link rel="stylesheet" href="/css/smoothness/jquery-ui-1.8.16.custom.css" />
+        <link rel="stylesheet" href="/css/index.css" />
+        
+        <script src="/js/coffee-script.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js"></script>
+        <script src="/js/jquery-ui-1.8.16.custom.min.js"></script>
+        <script src="/js/ace.js"></script>
+        <script src="/js/theme-textmate.js"></script>
+        <script src="/js/mode-javascript.js"></script>
+        <script type="text/coffeescript">
+            cw.dialog = ->
+                $editor = $ "#editor";
+                
+                if not $editor.length
+                    $("<div />")
+                        .append($("<pre />").attr("id", "editor").text("->").css(width: "90%", height:"90%"))
+                        .appendTo("body")
+                        .dialog(title:"Ace is the Place!", minHeight: 400, minWidth: 750);
+                    
+                    editor = ace.edit "editor"
+                    editor.setTheme "ace/theme/textmate"
+                else
+                    if $editor.is ":visible"
+                        $editor.parent().dialog('close');
+                    else
+                        $editor.parent().dialog('open');
+
+            $ ->
+                $("<button />")
+                    .text("Editor!")
+                    .click(cw.dialog)
+                    .appendTo("body")
+        </script>
+        
+    </head>
+    <body>
+    </body>
+</html>

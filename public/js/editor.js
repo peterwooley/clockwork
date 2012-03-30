@@ -1,6 +1,8 @@
 var world, fixDef, bodyDef;
 
 window.addObject = function() {
+    var bodyDef = new b2BodyDef;
+    bodyDef.type = b2Body.b2_staticBody;
 	var b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape;
 	var b2CircleShape = Box2D.Collision.Shapes.b2CircleShape;
 
